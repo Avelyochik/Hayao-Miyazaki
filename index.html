@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Путеводитель по вселенной Миядзаки</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src='./Untitled-3.js'></script>
 </head>
 
 <body>
@@ -16,7 +15,7 @@
   <img class="pendant right" src="photo/висюлька копия.jpg" alt="Висюлька" />
 
   <div class="audio-controls">
-    <audio id="audio" src="audio/Miyazaki Hayao Collection Piano and Harp - Sleeping and Working Ghibli Healing Music.mp3" loop></audio>
+    <audio id="audio" src="musuc/Miyazaki Hayao Collection Piano and Harp - Sleeping and Working Ghibli Healing Music.mp3" loop></audio>
     <button onclick="playAudio()">▶️</button>
     <button onclick="pauseAudio()">⏸️</button>
     <button onclick="quieter()">🔉</button>
@@ -67,14 +66,25 @@
   </div>
 
   <div class="comment-icon" onclick="scrollToComments()" title="Комментарии">
-    💬
+    💬  
   </div>
 
   <div id="comments" class="comment-section">
     <h2>Комментарии</h2>
-    <p>Здесь появятся ваши отзывы и обсуждения 😊</p>
+
+    <div id="comments-list" aria-live="polite">
+      <p>Здесь появятся ваши отзывы и обсуждения 😊</p>
+    </div>
+
+    <div class="comment-form" style="margin-top:16px; text-align:left; max-width:800px; margin-left:auto; margin-right:auto;">
+      <label for="comment-input" style="display:block; font-weight:600; margin-bottom:6px;">Оставить комментарий</label>
+      <textarea id="comment-input" placeholder="Напишите ваш комментарий..." rows="4" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;"></textarea>
+      <div style="margin-top:8px;">
+        <button id="open-name-modal" style="padding:8px 12px; border-radius:8px; border:none; background:#4CAF50; color:#fff; cursor:pointer;">Отправить</button>
+      </div>
+    </div>
   </div>
 
-  <script src="js/script.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
