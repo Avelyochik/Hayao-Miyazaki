@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Путеводитель по вселенной Миядзаки</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src='./Untitled-3.js'></script>
+</head>
+
+<body>
+  <h1 class="outlined-text">Путеводитель по вселенной Миядзаки</h1>
+
+  <img class="pendant" src="photo/висюлька копия.jpg" alt="Висюлька" />
+  <img class="pendant right" src="photo/висюлька копия.jpg" alt="Висюлька" />
+
+  <div class="audio-controls">
+    <audio id="audio" src="audio/Miyazaki Hayao Collection Piano and Harp - Sleeping and Working Ghibli Healing Music.mp3" loop></audio>
+    <button onclick="playAudio()">▶️</button>
+    <button onclick="pauseAudio()">⏸️</button>
+    <button onclick="quieter()">🔉</button>
+    <button onclick="louder()">🔊</button>
+  </div>
+
+  <div class="movie-container">
+    <div class="movie">
+      <img src="photo/долины ветра четоттам копия нов.webp" alt="Наусикая из долины ветров" />
+      <a class="custom-link outlined-text" href="https://rezka.ag/animation/adventures/2453-navsikaya-iz-doliny-vetrov-1984.html">Наусикая из долины ветров (1984)</a>
+    </div>
+    <div class="movie">
+      <img src="photo/летучий замок копия нов.webp" alt="Летучий замок" />
+      <a class="custom-link outlined-text" href="https://rezka.ag/animation/adventures/2471-nebesnyy-zamok-laputa-1986.html">Летучий замок (1986)</a>
+    </div>
+    <div class="movie">
+      <img src="photo/мой сосед тоторо.webp" alt="Мой сосед Тоторо" />
+      <a class="custom-link outlined-text" href="https://rezka.ag/animation/adventures/1347-moy-sosed-totoro-1988.html">Мой сосед Тоторо (1988)</a>
+    </div>
+    <div class="movie">
+      <img src="photo/принцеса моноке копия нов.webp" alt="Принцесса Мононоке" />
+      <a class="custom-link outlined-text" href="https://rezka.ag/animation/drama/1350-princessa-mononoke-1997.html">Принцесса Мононоке (1997)</a>
+    </div>
+    <div class="movie">
+      <img src="photo/унесеные призраками копия нов.webp" alt="Унесённые призраками" />
+      <a class="custom-link outlined-text" href="https://rezka.ag/animation/adventures/829-unesennye-prizrakami-2001.html">Унесённые призраками (2001)</a>
+    </div>
+    <div class="movie">
+      <img src="photo/ходячий замок копия нов.webp" alt="Ходячий замок" />
+      <a class="custom-link outlined-text" href="https://rezka.ag/animation/drama/818-hodyachiy-zamok-2004.html">Ходячий замок (2004)</a>
+    </div>
+    <div class="movie">
+      <img src="photo/рыбка пониье.webp" alt="Рыбка Поньо" />
+      <a class="custom-link outlined-text" href="https://rezka.ag/animation/adventures/7460-rybka-pono-na-utese-2008.html">Рыбка Поньо (2008)</a>
+    </div>
+    <div class="movie">
+      <img src="photo/ветер крепчает копия нов.webp" alt="Ветер крепчает" />
+      <a class="custom-link outlined-text" href="https://rezka.ag/animation/drama/1269-veter-krepchaet-2013.html">Ветер крепчает (2013)</a>
+    </div>
+    <div class="movie">
+      <img src="photo/мальчик и птица.webp" alt="Мальчик и птица" />
+      <a class="custom-link outlined-text" href="https://rezka.ag/animation/adventures/60358-malchik-i-ptica-2023.html">Мальчик и птица (2024)</a>
+    </div>
+    <div class="movie">
+      <img src="photo/коро.jpg" alt="Великий день Коро" />
+      <a class="custom-link outlined-text" href="https://ru.kinorium.com/380886/">Великий день Коро (2002)</a>
+    </div>
+  </div>
+
+  <div class="comment-icon" onclick="scrollToComments()" title="Комментарии">
+    💬
+  </div>
+
+  <div id="comments" class="comment-section">
+    <h2>Комментарии</h2>
+    <p>Здесь появятся ваши отзывы и обсуждения 😊</p>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
