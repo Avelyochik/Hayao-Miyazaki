@@ -105,19 +105,41 @@
       time.style = 'font-weight:400; color:#666; margin-left:6px; font-size:0.9em;';
       hdr.appendChild(name);
       hdr.appendChild(time);
-      // Если комментарий принадлежит текущему клиенту — добавим кнопку удаления
-      if (myId && c.clientId && myId === c.clientId) {
+      // Добавим кнопку удаления в двух случаях:
+      // 1) комментарий привязан к текущему clientId (владелец) — удаляем напрямую
+      // 2) комментарий старый и не имеет clientId — позволим удалить только после подтверждения имени
+      if ((c.clientId && myId && c.clientId === myId) || !c.clientId) {
         const delBtn = document.createElement('button');
         delBtn.textContent = 'Удалить';
         delBtn.style = 'margin-left:10px; padding:4px 8px; border-radius:6px; background:#e74c3c; color:#fff; border:none; cursor:pointer;';
         delBtn.addEventListener('click', () => {
           if (!confirm('Удалить этот комментарий?')) return;
           const list = loadComments();
-          const idx = list.findIndex(x => x.id === c.id);
-          if (idx !== -1) {
-            list.splice(idx, 1);
-            saveComments(list);
-            renderComments();
+          // если у комментария есть id — удаляем по id
+          if (c.id) {
+            const idx = list.findIndex(x => x.id === c.id);
+            if (idx !== -1) {
+              list.splice(idx, 1);
+              saveComments(list);
+              renderComments();
+            }
+            return;
+          }
+          // старый комментарий без id/clientId — запросим имя для подтверждения
+          const nameConfirm = window.prompt('Введите ваше имя (точно как при создании) для подтверждения удаления:', '');
+          if (nameConfirm === null) return;
+          if (nameConfirm.trim() === c.name) {
+            // Найдём по точному совпадению времени+текста+имени (маловероятны коллизии)
+            const idx = list.findIndex(x => x.time === c.time && x.text === c.text && x.name === c.name);
+            if (idx !== -1) {
+              list.splice(idx, 1);
+              saveComments(list);
+              renderComments();
+            } else {
+              alert('Комментарий не найден. Возможно он уже удалён.');
+            }
+          } else {
+            alert('Имя не совпадает. Удаление отменено.');
           }
         });
         hdr.appendChild(delBtn);
